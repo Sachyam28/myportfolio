@@ -1,12 +1,28 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
   const[activeSection, setActiveSection] = React.useState("");
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
+//change navbar background on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+  })
+
+//scroll to section
   const handleMenuItemClick = (sectionId) => {
     setActiveSection(sectionId);
+    setIsOpen(false);
   };
 
   const menuItems = [
@@ -18,7 +34,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-transparent">
+    <nav className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[10vw] 
+    ${isScrolled ? 'bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
       <div className="text-white py-5 flex justify-between items-center">
         {/*  LOGO  */}
         <div className="text-lg font-semibold cursor-pointer">
