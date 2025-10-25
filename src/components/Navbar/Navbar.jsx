@@ -13,8 +13,8 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    const handleResize = () => {
     // Close mobile menu when switching to desktop
+    const handleResize = () => {
     if (window.innerWidth >= 768) {
       setIsOpen(false);
     }
@@ -22,7 +22,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.addEventListener("resize", handleResize);
