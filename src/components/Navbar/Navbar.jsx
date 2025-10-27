@@ -25,9 +25,9 @@ const Navbar = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.addEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
   //scroll to section
   const handleMenuItemClick = (sectionId) => {

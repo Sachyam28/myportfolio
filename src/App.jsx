@@ -1,6 +1,12 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar.jsx'
 import BlurBlob from './components/BlurBlob.jsx'
+import About from './components/About/About.jsx'
+import Skills from './components/Skills/Skills.jsx'
+import Education from './components/Education/Education.jsx'
+import Experience from './components/Experience/Experience.jsx'
+import Contact from './components/Contact/Contact.jsx'
+import Footer from './components/Footer/Footer.jsx'
 
 
 import './App.css'
@@ -15,6 +21,12 @@ const App = () => {
       
       <div className="relative pt-20">
         <Navbar />
+        <About />
+        <Skills />
+        <Experience/>
+        <Education/>
+        <Contact/>
+        <Footer/>
        
       </div>
 
